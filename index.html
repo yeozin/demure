@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<title>demure</title>
+	<style type="text/css">
+		html, body {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			height: 100%;
+			background-color: black;
+			cursor: ;
+			position: relative;
+		}
+
+		#demure {
+			font-family: "Edu AU VIC WA NT Dots", cursive;
+			font-optical-sizing: auto;
+			font-weight: 600;
+			font-style: normal;
+			font-size: 11rem;
+			text-align: center;
+			width: 830px;
+			position: relative;
+			top: 7%;
+			left: 18%;}
+
+		.ys {
+			font-family: "Montserrat", sans-serif;
+			font-optical-sizing: auto;
+			font-weight: 200;
+			font-style: normal;
+			font-size: 2.5rem; 
+			text-align: center; 
+			width: 1325px;
+			position: relative;
+			top: 5%;
+			color: white;
+			
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<div class="ys">You see how I design my website?</div>
+		<div id="demure"></div>
+	</div>
+
+	<script type="text/javascript">
+
+		var source = document.getElementById("demure");
+
+		function changeColor() {
+			document.getElementById("demure").style.color = "#" + Math.round(Math.random() * 0xffffff).toString(16);}
+
+		var myTimer = setInterval(changeColor, 500);
+		document.getElementById('demure').addEventListener("click",function(){clearInterval(myTimer)});
+
+
+		const words = [
+			"very demure", 
+			"very mindful", 
+			"very cutesy", 
+			"very presentable", 
+			"very modest",
+			"very repectful",
+
+			];
+
+		let currentIndex = 0;
+		let interval;
+
+		function changeWords() {
+			const demure = document.getElementById('demure'); 
+			currentIndex = Math.floor(Math.random() * words.length);
+			demure.textContent = words[currentIndex];}
+
+		function startWordsRotation() { 
+			interval = setInterval(changeWords, 500);
+		}
+
+		document.getElementById('demure').addEventListener('click', () => {clearInterval(interval); alert("Thx! You are " + words[currentIndex] + "!");});
+
+		window.onload = startWordsRotation;
+	</script>
+</body>
+</html>
